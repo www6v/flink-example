@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/flink-examples.iml" filepath="$PROJECT_DIR$/flink-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-batch/flink-examples-batch_2.11.iml" filepath="$PROJECT_DIR$/flink-examples-batch/flink-examples-batch_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-build-helper/flink-examples-build-helper.iml" filepath="$PROJECT_DIR$/flink-examples-build-helper/flink-examples-build-helper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-build-helper/flink-examples-streaming-kafka/flink-examples-streaming-kafka_2.11.iml" filepath="$PROJECT_DIR$/flink-examples-build-helper/flink-examples-streaming-kafka/flink-examples-streaming-kafka_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-build-helper/flink-examples-streaming-state-machine/flink-examples-streaming-state-machine_2.11.iml" filepath="$PROJECT_DIR$/flink-examples-build-helper/flink-examples-streaming-state-machine/flink-examples-streaming-state-machine_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-build-helper/flink-examples-streaming-twitter/flink-examples-streaming-twitter_2.11.iml" filepath="$PROJECT_DIR$/flink-examples-build-helper/flink-examples-streaming-twitter/flink-examples-streaming-twitter_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-streaming/flink-examples-streaming_2.11.iml" filepath="$PROJECT_DIR$/flink-examples-streaming/flink-examples-streaming_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples-table/flink-examples-table_2.11.iml" filepath="$PROJECT_DIR$/flink-examples-table/flink-examples-table_2.11.iml" />
+    </modules>
+  </component>
+</project>
