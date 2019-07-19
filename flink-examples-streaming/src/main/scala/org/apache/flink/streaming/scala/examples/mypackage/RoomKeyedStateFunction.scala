@@ -76,7 +76,8 @@ class RoomTemperatureAlertFunction(val threshold: Double)
 ////    this.lastTempState.update(reading.temperature)
 //    this.lastTempState.update(reading.action)
 //  }
-
+  val LEAVE = "leave"
+  val JOIN = "join"
   override def flatMap(reading: RoomReading, out: Collector[(String, String, Set[String])]): Unit = {
     /////
 //    var actions: List[String] = List();
@@ -89,11 +90,22 @@ class RoomTemperatureAlertFunction(val threshold: Double)
       actions = actions + (action)
     }
 //    actions = reading.action +: actions
-    actions = actions + (reading.action)
-    if( reading.action.equals("leave") && actions.contains("join")  ) {
-      actions = actions-"join"
-      actions = actions-"leave"
+
+    val action = reading.action
+    actions = actions + action
+
+    if( actions.contains(action) ) {
+      val index = LEAVE.length
+      val id = action.substring(index, action.length)
+
+      actions = actions - (JOIN + id)
+      actions = actions - (LEAVE + id)
     }
+
+//    if( reading.action.equals("leave") && actions.contains("join")  ) {
+//      actions = actions-"join"
+//      actions = actions-"leave"
+//    }
 
     out.collect((reading.userId, reading.action, actions))
 

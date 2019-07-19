@@ -57,20 +57,24 @@ class RoomSource extends RichParallelSourceFunction[RoomReading] {
     var j = 0;
     while (running) {
 
-      var  state = "";
-      if( j%2 == 0 ) {
-        state = "join"
-      }
-      else {
-        state = "leave"
+      var state = "";
+      val curTime = Calendar.getInstance.getTimeInMillis;
+
+      {
+          state = "join" + j
+
+          //      curFTemp = curFTemp.map( t => (t._1, t._2) )
+          curFTemp = curFTemp.map(t => (t._1, state))
+
+          curFTemp.foreach(t => srcCtx.collect(RoomReading(t._1, curTime, t._2)))
       }
 
-      //      curFTemp = curFTemp.map( t => (t._1, t._2) )
-      curFTemp = curFTemp.map( t => (t._1, state) )
-      val curTime = Calendar.getInstance.getTimeInMillis
+      {
+          state = "leave" + j
 
-      // emit new SensorReading
-      curFTemp.foreach( t => srcCtx.collect(RoomReading(t._1, curTime, t._2)))
+          curFTemp = curFTemp.map( t => (t._1, state) )
+          curFTemp.foreach(t => srcCtx.collect(RoomReading(t._1, curTime, t._2)))
+      }
 
       Thread.sleep(1000*5)
 
